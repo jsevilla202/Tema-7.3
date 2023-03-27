@@ -1,4 +1,4 @@
-package ejercicio5;
+package ejercicio4;
 
 /**
  * Clase con las funciones de Disco
