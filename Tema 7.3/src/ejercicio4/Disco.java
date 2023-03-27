@@ -22,7 +22,7 @@ public class Disco {
 	/**
 	 * Genero del disco
 	 */
-	String genero;
+	Genero genero;
 	/**
 	 * Duración del disco
 	 */
@@ -50,7 +50,7 @@ public class Disco {
 		this.codigo = codigo;
 		this.autor = autor;
 		this.titulo = titulo;
-		this.genero = genero;
+		this.genero = Genero.valueOf(genero);
 		this.duracion = duracion;
 	}
 
@@ -127,7 +127,7 @@ public class Disco {
 	 * 
 	 * @return Devuelve el valor de genero
 	 */
-	public String getGenero() {
+	public Genero getGenero() {
 		return genero;
 	}
 
@@ -137,7 +137,7 @@ public class Disco {
 	 * @param genero Valor para el parametro genero dado por el usuario
 	 */
 	public void setGenero(String genero) {
-		this.genero = genero;
+		this.genero = Genero.valueOf(genero);
 	}
 
 	/**
@@ -167,4 +167,5 @@ public class Disco {
 				+ ", duracion=" + duracion + "]";
 	}
 
+	enum Genero{Rock, Pop, Electronica, Reggaeton};
 }

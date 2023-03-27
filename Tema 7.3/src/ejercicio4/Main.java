@@ -13,6 +13,7 @@ public class Main {
 		int pos = 0;
 		// Posición a modificar
 		int modify = 0;
+		String genero;
 
 		Scanner sc = new Scanner(System.in);
 
@@ -58,8 +59,9 @@ public class Main {
 				System.out.print("Inserte el titulo: ");
 				discos[pos].titulo = sc.nextLine();
 
-				System.out.print("Inserte el genero: ");
-				discos[pos].genero = sc.nextLine();
+				System.out.print("Inserte el genero (Rock, Pop, Electronica, Reggaeton): ");
+				genero = sc.nextLine();
+				discos[pos].genero = Disco.Genero.valueOf(genero);
 				// Tampoco puede insertar un valor negativo en la duracion
 				do {
 					System.out.print("Inserte la duración: ");
@@ -99,8 +101,9 @@ public class Main {
 						System.out.print("Inserte el titulo: ");
 						discos[modify].titulo = sc.nextLine();
 
-						System.out.print("Inserte el genero: ");
-						discos[modify].genero = sc.nextLine();
+						System.out.print("Inserte el genero (Rock, Pop, Electronica, Reggaeton): ");
+						genero = sc.nextLine();
+						discos[pos].genero = Disco.Genero.valueOf(genero);
 						do {
 							System.out.print("Inserte la duración: ");
 							discos[modify].duracion = sc.nextInt();
