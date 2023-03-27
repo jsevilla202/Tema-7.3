@@ -5,6 +5,8 @@ public class CuentaCorriente {
 	String nombre;
 	double saldo;
 	
+	enum Sexo {HOMBRE, MUJER};
+	Sexo sexo;
 	
 	public CuentaCorriente(String dNI, double saldo) {
 		super();
@@ -17,6 +19,14 @@ public class CuentaCorriente {
 		DNI = dNI;
 		this.nombre = nombre;
 		this.saldo = saldo;
+	}
+	
+	public CuentaCorriente(CuentaCorriente CC, String sexo) {
+		super();
+		DNI = CC.DNI;
+		this.nombre = CC.nombre;
+		this.saldo = CC.saldo;
+		this.sexo = Sexo.valueOf(sexo);
 	}
 	
 	void sacarDinero(double cantidad) {
@@ -42,6 +52,20 @@ public class CuentaCorriente {
 	void mostrarDinero() {
 		System.out.println("Sr./Sra. " + nombre +  " con DNI " + DNI + " tiene un saldo de: " + saldo + "€");
 	}
+
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+
+	@Override
+	public String toString() {
+		return "CuentaCorriente [DNI=" + DNI + ", nombre=" + nombre + ", saldo=" + saldo + ", sexo=" + sexo + "]";
+	}
+	
 	
 	
 }
