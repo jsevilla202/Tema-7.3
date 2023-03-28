@@ -10,23 +10,23 @@ public class Libro {
 	/**
 	 * Nombre del libro
 	 */
-	String titulo;
+	private String titulo;
 	/**
 	 * Nombre del autor del libro
 	 */
-	String autor;
+	private String autor;
 	/**
 	 * Numero de ejemplares disponibles
 	 */
-	final int ejemplares;
+	private final int ejemplares;
 	/**
 	 * Numero de ejemplares prestados
 	 */
-	int prestados;
+	private int prestados;
 	/**
 	 * Genero del libro
 	 */
-	Genero genero;
+	private Genero genero;
 
 	/**
 	 * Constructor por defecto

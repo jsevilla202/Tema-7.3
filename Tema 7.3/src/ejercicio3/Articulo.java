@@ -5,7 +5,7 @@ public class Articulo {
 	private double precio;
 	public static final int IVA = 21;
 	private int cuantosQuedan;
-	Departamento departameno;
+	private Departamento departameno;
 
 	public Articulo(String nombre, double precio, int cuantosQuedan, Departamento departamento) {
 		super();

@@ -7,13 +7,17 @@ public class Main {
 	public static void main(String[] args) {
 		// Array de objetos
 		Disco[] discos = new Disco[10];
-		// Opcion del emnu
+		// Opcion del menu
 		int opcion = 0;
 		// Contador de posición libre
 		int pos = 0;
 		// Posición a modificar
 		int modify = 0;
 		String genero;
+		String codigo;
+		String autor;
+		String titulo;
+		int duracion;
 
 		Scanner sc = new Scanner(System.in);
 
@@ -32,7 +36,7 @@ public class Main {
 			switch (opcion) {
 			case 1:
 				for (int i = 0; i < discos.length; i++) {
-					if (!discos[i].codigo.equals("LIBRE")) {
+					if (!discos[i].getCodigo().equals("LIBRE")) {
 						System.out.println();
 						System.out.println(discos[i].toString());
 						;
@@ -43,35 +47,39 @@ public class Main {
 			case 2:
 				sc.nextLine();
 				// El usuario no puede poner el mismo codigo que el que viene por defecto
-				while (discos[pos].codigo.equals("LIBRE")) {
+				while (discos[pos].getCodigo().equals("LIBRE")) {
 					System.out.print("Inserte un codigo para el disco: ");
-					discos[pos].codigo = sc.nextLine();
+					codigo = sc.nextLine();
+					discos[pos].setCodigo(codigo);
 
-					if (discos[pos].codigo.equals("LIBRE")) {
+					if (discos[pos].getCodigo().equals("LIBRE")) {
 						System.out.println("ERROR: Inserte un codigo diferente");
 						System.out.println();
 					}
 				}
 
 				System.out.print("Inserte el autor: ");
-				discos[pos].autor = sc.nextLine();
+				autor = sc.nextLine();
+				discos[pos].setAutor(autor);
 
 				System.out.print("Inserte el titulo: ");
-				discos[pos].titulo = sc.nextLine();
+				titulo = sc.nextLine();
+				discos[pos].setTitulo(titulo);
 
 				System.out.print("Inserte el genero (Rock, Pop, Electronica, Reggaeton): ");
 				genero = sc.nextLine();
-				discos[pos].genero = Disco.Genero.valueOf(genero);
+				discos[pos].setGenero(genero);
 				// Tampoco puede insertar un valor negativo en la duracion
 				do {
 					System.out.print("Inserte la duración: ");
-					discos[pos].duracion = sc.nextInt();
+					duracion = sc.nextInt();
+					discos[pos].setDuracion(duracion);
 
-					if (discos[pos].duracion < 0) {
+					if (discos[pos].getDuracion() < 0) {
 						System.out.println("ERROR: No puede introducir un tiempo negativo");
 						System.out.println();
 					}
-				} while (discos[pos].duracion < 0);
+				} while (discos[pos].getDuracion() < 0);
 				pos++;
 				break;
 			case 3:
@@ -81,38 +89,42 @@ public class Main {
 				modify--;
 				if (modify >= 0 && modify < discos.length) {
 					System.out.println();
-					if (discos[modify].codigo.equals("LIBRE")) {
+					if (discos[modify].getCodigo().equals("LIBRE")) {
 						System.out.println("ERROR: Aquí no hay disco");
 					} else {
 						sc.nextLine();
 						do {
 							System.out.print("Inserte un codigo para el disco: ");
-							discos[modify].codigo = sc.nextLine();
+							codigo = sc.nextLine();
+							discos[modify].setCodigo(codigo);
 
-							if (discos[modify].codigo.equals("LIBRE")) {
+							if (discos[modify].getCodigo().equals("LIBRE")) {
 								System.out.println("ERROR: Inserte un codigo diferente");
 								System.out.println();
 							}
-						} while (discos[modify].codigo.equals("LIBRE"));
+						} while (discos[modify].getCodigo().equals("LIBRE"));
 
 						System.out.print("Inserte el autor: ");
-						discos[modify].autor = sc.nextLine();
+						autor = sc.nextLine();
+						discos[modify].setAutor(autor);
 
 						System.out.print("Inserte el titulo: ");
-						discos[modify].titulo = sc.nextLine();
+						titulo = sc.nextLine();
+						discos[modify].setTitulo(titulo);
 
 						System.out.print("Inserte el genero (Rock, Pop, Electronica, Reggaeton): ");
 						genero = sc.nextLine();
-						discos[pos].genero = Disco.Genero.valueOf(genero);
+						discos[modify].setGenero(genero);
 						do {
 							System.out.print("Inserte la duración: ");
-							discos[modify].duracion = sc.nextInt();
+							duracion = sc.nextInt();
+							discos[modify].setDuracion(duracion);
 
-							if (discos[modify].duracion < 0) {
+							if (discos[modify].getDuracion() < 0) {
 								System.out.println("ERROR: No puede introducir un tiempo negativo");
 								System.out.println();
 							}
-						} while (discos[modify].duracion < 0);
+						} while (discos[modify].getDuracion() < 0);
 					}
 				} else {
 					System.out.println("ERROR: Ubicación no disponible");
@@ -123,7 +135,7 @@ public class Main {
 				modify = sc.nextInt();
 				modify--;
 
-				if (discos[modify].codigo.equals("LIBRE")) {
+				if (discos[modify].getCodigo().equals("LIBRE")) {
 					System.out.println("ERROR: Aquí no hay disco");
 				} else {
 					// En vez de borrar esa posición, se resetea el objeto y listo

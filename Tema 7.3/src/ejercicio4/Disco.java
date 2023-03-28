@@ -10,23 +10,23 @@ public class Disco {
 	/**
 	 * Codigo del disco, por defecto LIBRE
 	 */
-	String codigo;
+	private String codigo;
 	/**
 	 * Autor del disco
 	 */
-	String autor;
+	private String autor;
 	/**
 	 * Titulo del disco
 	 */
-	String titulo;
+	private String titulo;
 	/**
 	 * Genero del disco
 	 */
-	Genero genero;
+	private Genero genero;
 	/**
 	 * Duración del disco
 	 */
-	int duracion;
+	private int duracion;
 
 	/**
 	 * Constructor por defecto
@@ -167,5 +167,7 @@ public class Disco {
 				+ ", duracion=" + duracion + "]";
 	}
 
-	enum Genero{Rock, Pop, Electronica, Reggaeton};
+	enum Genero {
+		Rock, Pop, Electronica, Reggaeton
+	};
 }

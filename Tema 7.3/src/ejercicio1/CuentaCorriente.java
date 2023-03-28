@@ -1,12 +1,12 @@
 package ejercicio1;
 
 public class CuentaCorriente {
-	String DNI;
-	String nombre;
-	double saldo;
+	private String DNI;
+	private String nombre;
+	private double saldo;
 	
 	enum Sexo {HOMBRE, MUJER};
-	Sexo sexo;
+	private Sexo sexo;
 	
 	public CuentaCorriente(String dNI, double saldo) {
 		super();
